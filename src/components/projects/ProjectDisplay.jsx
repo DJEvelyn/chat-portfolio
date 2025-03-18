@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ProjectInfo from './ProjectInfo';
 import ProjectBar from './ProjectBar';
 
-export default function ProjectDisplay()
+export default function ProjectDisplay({inputText})
 {
     // TOGGLE HANDLING START
     const [open, setOpen] = React.useState(false); 
@@ -53,9 +53,36 @@ export default function ProjectDisplay()
     const [tags, setTags] = React.useState(['web'])
 
 
+
+    // ADJUST TAGS ON INPUT CHANGE
+    useEffect(() => 
+    {
+        if (inputText.length === 0)
+            return;
+        
+        aiSubmit(inputText); 
+
+    }, [inputText]); 
+
+    const aiSubmit = async (givenMessage) =>
+    {
+        fetch('http://localhost:3005/api/askAI/list', 
+        {
+            headers: {'Content-Type' : 'application/json'},
+            body: JSON.stringify( { message : givenMessage }),
+            method: 'PUT',
+        })
+        .then(response => response.json())
+        .then(data => { const list = JSON.parse(JSON.parse(data)); setTags(list) } );
+    }
+
     React.useEffect(() =>
     {
         console.log(`Tags are ${tags}`)
+
+        console.log(`Tags 0th is ${tags[0]}`)
+
+        console.log(`Tag strings are ${getTagStrings(tags)}`);
 
         fetch (`http://localhost:3005/bar/all${getTagStrings(tags)}`)
         .then(response => response.json())

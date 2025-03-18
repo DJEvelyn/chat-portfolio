@@ -12,7 +12,7 @@ function App() {
     <>
     <ChatDisplay inputText={text} setInputLocked={setInputLocked}/>
     <Input setText={setText} inputLocked={inputLocked}/>
-    <ProjectDisplay/>
+    <ProjectDisplay inputText={text} />
     </>
   );
 }
