@@ -1,41 +1,34 @@
 import React, {useState, useEffect} from 'react'
 import {styled} from 'styled-components'
 
-export default function ChatInput({addMessage})
+export default function Input({setText, inputLocked})
 {
     const handleSumbit = async (event) =>
     {
+        if (inputLocked)
+            return
+
         event.preventDefault(); 
         const inputValue = event.target.searchInput.value;
 
-        addMessage('user', inputValue)
-        await aiSubmit(inputValue)
-    }
-
-    const aiSubmit = async (givenMessage) =>
-    {
-        fetch('http://localhost:3005/api/askAI/ask', 
-        {
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify( { message : givenMessage }),
-        method: 'PUT',
-        })
-        .then(response => response.json())
-        .then(data => addMessage('ai', data));
+        if (inputValue.length > 0)
+            setText(inputValue)
     }
 
     return (
-        <ChatInputCSS>
+        <InputCSS>
         <form className='inputForm' onSubmit={handleSumbit} id='inputForm'>
             <input className='searchInput' type='text' id='searchInput'/>
-            <input className='searchButton' type='submit' value='Send' id='searchButton'/>
+            <input className='searchButton' type='submit' value='Send' id='searchButton'
+                style={{backgroundColor : inputLocked? '#007bff' : 'gray'}}
+            />
         </form>
-        </ChatInputCSS>
+        </InputCSS>
     )
 
 }
 
-const ChatInputCSS = styled.div `
+const InputCSS = styled.div `
 
     #inputForm {
     display: flex;

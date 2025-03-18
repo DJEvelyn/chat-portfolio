@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {styled} from 'styled-components'
-import ChatInput from './ChatInput';
 
-export default function ChatDisplay()
+export default function ChatDisplay({inputText, setInputLocked})
 {
     const [messages, setMessages] = useState([{user:'ai', message : '[Portfolio AI Assistant]'}])
 
@@ -10,6 +9,38 @@ export default function ChatDisplay()
     const idValue = Date.now(); // Use a timestamp as a unique ID
     setMessages((prevMessages) => [...prevMessages, { id: idValue, user: user, message: message }]);
     };
+
+
+    /* Submission handling */
+    useEffect(() =>
+    {
+      if (inputText.length === 0)
+        return;
+
+      handleMessage(inputText);
+
+    }, [inputText]); // When inputText changes, submission has occured
+
+    const handleMessage = async (inputValue) =>
+    {
+      addMessage('user', inputValue)
+      setInputLocked(true) // Lock text input
+      await aiSubmit(inputValue)
+      setInputLocked(false) // Unlock text input
+    }
+
+    const aiSubmit = async (givenMessage) =>
+    {
+        fetch('http://localhost:3005/api/askAI/ask', 
+        {
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify( { message : givenMessage }),
+        method: 'PUT',
+        })
+        .then(response => response.json())
+        .then(data => addMessage('ai', data));
+    }
+
 
     return (
       <ChatDisplayCSS>
@@ -21,9 +52,6 @@ export default function ChatDisplay()
           {i.message}
           </div>
       ))}
-
-      <ChatInput addMessage={addMessage} />
-
       </ChatDisplayCSS>
     )
 }  
