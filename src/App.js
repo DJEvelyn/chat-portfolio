@@ -5,6 +5,8 @@ import Input from './components/Input';
 import styled from 'styled-components'
 import Profile from './components/profile/Profile';
 
+import Display from './components/displayer/Display.jsx';
+
 function App() {
 
   const [text, setText] = useState('')
@@ -14,8 +16,7 @@ function App() {
     <MainCSS>
       <div className='container'>
         
-        <Profile/>
-
+        {/* <Profile/>
         <div style={{gridArea: 'chat'}}>
           <ChatDisplay inputText={text} setInputLocked={setInputLocked}/>
         </div>
@@ -24,7 +25,10 @@ function App() {
         </div>
         <div style={{gridArea: 'project'}}>
           <ProjectDisplay inputText={text} />
-        </div>
+        </div> */}
+
+        <Display/>
+
       </div>
     </MainCSS>
   );
