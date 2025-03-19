@@ -44,7 +44,7 @@ export default function ChatDisplay({inputText, setInputLocked})
 
     return (
       <ChatDisplayCSS>
-      {messages.map((i) => (
+      {[...messages].reverse().map((i) => ( /* Revered cloned list */
           <div
           key={i.id}
           className={`message ${i.user === "ai" ? "received" : "sent"}`}
@@ -58,9 +58,11 @@ export default function ChatDisplay({inputText, setInputLocked})
 
 const ChatDisplayCSS = styled.div `
 
-    flex: 1;
-    overflow-y: auto; /* Scroll if content overflows */
-    padding: 10px;
+    overflow: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse; /* For displaying new entries at bottom */
+    overflow-anchor: auto !important;
 
     .message {
       max-width: 60%;
