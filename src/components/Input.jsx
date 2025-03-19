@@ -30,6 +30,10 @@ export default function Input({setText, inputLocked})
 
 const InputCSS = styled.div `
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     #inputForm {
     display: flex;
     flex-wrap: nowrap; /* Ensures the input and button stay on the same row */

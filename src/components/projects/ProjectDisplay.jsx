@@ -102,8 +102,10 @@ export default function ProjectDisplay({inputText})
     return (
         <React.Fragment>
         
-        <div> Open status is {open? "open" : "closed"} </div>
-        <button onClick={buttonAction}> Toggle </button>
+        {/* <div> Open status is {open? "open" : "closed"} </div>
+        <button onClick={buttonAction}> Toggle </button> */}
+
+        <span style={{textAlign: 'center'}}> Projects & Qualifications </span>
 
             <ProjectDisplayCSS style={{gridTemplateRows : `${ratio[0]}fr ${ratio[1]}fr`}}> 
                 <div className='project-list'> 
@@ -126,7 +128,7 @@ export default function ProjectDisplay({inputText})
 const ProjectDisplayCSS = styled.div `
 
     width: 100%;
-    height: 300px; 
+    height: 100%; 
 
     display: grid;
     //border: 1px solid purple; 

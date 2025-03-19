@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 
-const Display = () =>
+const Display = ({header, top, search, bottom}) =>
 {
 
     return (
         <DisplayCSS>
-
-            <div> Header </div>
-            <div> Top </div>
-            <div> Search </div>
-            <div> Bottom </div>
-
+            <div className='holder'>
+                <div className='holder-element'> {header} </div>
+                <div className='holder-element'> {top} </div>
+                <div className='holder-element'> {search} </div>
+                <div className='holder-element'> {bottom} </div>
+            </div>
         </DisplayCSS>
     )
 
@@ -23,26 +23,21 @@ const DisplayCSS = styled.div`
     height: 100vh; /* Ensures full height of the viewport */
     width: 50%; /* Default width for desktop screens */
 
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    text-align: center;
+    .holder {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
 
-    /* Style each section */
-    div:nth-child(1) {
-        background-color: red;
+        display: grid;
+        grid-template-rows: 10% 30% 10% 50%;
     }
 
-    div:nth-child(2) {
-        background-color: blue;
-    }
-
-    div:nth-child(3) {
-        background-color: orange;
-    }
-
-    div:nth-child(4) {
-        background-color: green;
+    .holder-element {
+        overflow-y: auto; 
     }
 
     /* Media query for mobile devices */

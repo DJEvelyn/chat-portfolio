@@ -19,6 +19,8 @@ const Profile = () => {
 
   return (
     <div>
+      <div> Portfolio </div>
+
       <button onClick={handleOpenModal}>Contact Me</button>
       <ContactMeModal
         isOpen={isModalOpen}
