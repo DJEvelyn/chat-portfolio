@@ -137,14 +137,6 @@ const ProjectDisplayCSS = styled.div `
     //     border: 1px solid purple; 
     // }
 
-    .project-list div {
-
-        display: flex; 
-
-        justify-content: center; 
-        align-items: center; 
-    }
-
     .project-list {
         height: 100%; 
         display: grid;
@@ -156,12 +148,13 @@ const ProjectDisplayCSS = styled.div `
     } 
 
     .project-list div {
-        display: flex;
+        /* display: flex;
 
         justify-content: center;
         align-items: center; 
+        */
 
-        height: 100px; 
+        height: 30%; 
         
         //width: 95%;
         //height: 95%; 
