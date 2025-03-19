@@ -1,6 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// icons
+import { FaLinkedin, FaGithub } from "react-icons/fa6";
+
+
 export default function ProfileMain()
 {
 
@@ -9,6 +13,12 @@ export default function ProfileMain()
             <span className='nameSection'> Dylan Evelyn </span>
             <span className='aboutMeSection'> About Me </span>
 
+            <span className='iconsSection'>
+
+                <a href='http://linkedin.com/in/dylan-evelyn'> <FaLinkedin/> </a>
+                <a href='http://github.com/djevelyn'> <FaGithub/> </a>
+
+            </span>
 
             <button style={{gridArea: 'contact'}}> Contact Me </button>
         </ProfileMainCSS>
@@ -19,11 +29,13 @@ export default function ProfileMain()
 const ProfileMainCSS = styled.div `
 
     box-sizing: border-box;
+    overflow: hidden;
 
     min-width: 100%;
     min-height: 100%; 
 
-    border: 1px dashed purple; 
+    //border: 1px dashed purple; // for debugging
+    border-bottom: 1px solid lightgray; 
 
     display: grid;
 
@@ -48,6 +60,19 @@ const ProfileMainCSS = styled.div `
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .iconsSection {
+        grid-area: icons;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;     
+    }
+
+    .iconsSection * {
+        max-height: 100%;
+        max-width: auto; 
     }
 
 `
