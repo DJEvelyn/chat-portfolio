@@ -127,6 +127,7 @@ export default function ProjectDisplay({inputText})
 
 const ProjectDisplayCSS = styled.div `
 
+    
     width: 100%;
     height: 100%; 
 

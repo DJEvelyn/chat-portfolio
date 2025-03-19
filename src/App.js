@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Profile from './components/profile/Profile';
 
 import Display from './components/displayer/Display.jsx';
+import ProfileMain from './components/profile/ProfileMain.jsx';
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   return (
     <MainCSS>
         <Display 
-        header={<Profile/>}
+        header={<ProfileMain/>}
         top={<ChatDisplay inputText={text} setInputLocked={setInputLocked}/>}
         search={<Input setText={setText} inputLocked={inputLocked}/>}
         bottom={<ProjectDisplay inputText={text} />}

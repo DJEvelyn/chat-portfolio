@@ -34,6 +34,7 @@ const DisplayCSS = styled.div`
 
         display: grid;
         grid-template-rows: 10% 30% 10% 50%;
+        /* grid-template-rows: 2fr 3fr 1fr 3fr; */
     }
 
     .holder-element {
