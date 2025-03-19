@@ -39,6 +39,9 @@ const DisplayCSS = styled.div`
 
     .holder-element {
         overflow-y: auto; 
+
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     /* Media query for mobile devices */
