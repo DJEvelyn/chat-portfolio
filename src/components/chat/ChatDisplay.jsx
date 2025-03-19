@@ -38,7 +38,7 @@ export default function ChatDisplay({inputText, setInputLocked})
         method: 'PUT',
         })
         .then(response => response.json())
-        .then(data => addMessage('ai', data));
+        .then(data => addMessage('ai', data.slice(1, data.length - 3)));
     }
 
 
