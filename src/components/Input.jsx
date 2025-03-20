@@ -13,6 +13,8 @@ export default function Input({setText, inputLocked})
 
         if (inputValue.length > 0)
             setText(inputValue)
+
+        event.target.searchInput.value = "";
     }
 
     return (
@@ -20,7 +22,7 @@ export default function Input({setText, inputLocked})
         <form className='inputForm' onSubmit={handleSumbit} id='inputForm'>
             <input className='searchInput' type='text' id='searchInput'/>
             <input className='searchButton' type='submit' value='Send' id='searchButton'
-                style={{backgroundColor : inputLocked? '#007bff' : 'gray'}}
+                style={{backgroundColor : inputLocked? 'gray' : '#007bff'}}
             />
         </form>
         </InputCSS>
