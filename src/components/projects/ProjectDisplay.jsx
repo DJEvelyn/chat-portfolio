@@ -108,7 +108,7 @@ export default function ProjectDisplay({inputText})
         <span style={{textAlign: 'center'}}> Projects & Qualifications </span>
 
             <ProjectDisplayCSS style={{gridTemplateRows : `${ratio[0]}fr ${ratio[1]}fr`}}> 
-                <div className='project-list'> 
+                <div className='project-list' style={{height: open? '0%' : '100%'}}> 
                     {open? <div> </div> : projectList.map(i => {
                         return <div key={i.id}> <ProjectBar {...i} clickAction={() => {setID(i.id)}}/> </div>
                     })}
