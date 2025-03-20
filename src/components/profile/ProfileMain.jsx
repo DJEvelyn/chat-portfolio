@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 // icons
-import { FaLinkedin, FaGithub } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
 
 
 export default function ProfileMain()
@@ -11,12 +11,15 @@ export default function ProfileMain()
     return (
         <ProfileMainCSS>
             <span className='nameSection'> Dylan Evelyn </span>
-            <span className='aboutMeSection'> About Me </span>
+            <span className='aboutMeSection'> Full Stack Developer </span>
+
+            <span className='textSection'> Building responsive, accessible web applications with modern technologies </span>
 
             <span className='iconsSection'>
 
                 <a href='http://linkedin.com/in/dylan-evelyn'> <FaLinkedin/> </a>
                 <a href='http://github.com/djevelyn'> <FaGithub/> </a>
+                <a href="mailto:DylanJamesEvelyn@hotmail.co.uk"> <FaEnvelope /> </a> 
 
             </span>
 
@@ -43,7 +46,7 @@ const ProfileMainCSS = styled.div `
     grid-template-rows: 25% 50% 25%;
     grid-template-areas:
     'name about'
-    'image text'
+    'text text'
     'icons contact';
 
     .nameSection {
@@ -56,7 +59,21 @@ const ProfileMainCSS = styled.div `
         grid-area: about;
     }
 
+    .textSection {
+        max-height: 100%;
+        max-width: 100%;
+        grid-area: text; 
+        font-style: italic;
+        font-size: 1em; 
+    }
+
     .nameSection, .aboutMeSection {
+        padding: 1px;
+        color: white;
+        background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+    }
+
+    .nameSection, .aboutMeSection, .textSection {
         display: flex;
         justify-content: center;
         align-items: center;
