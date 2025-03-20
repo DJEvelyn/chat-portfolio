@@ -9,7 +9,7 @@ export default function ProjectInfo({backAction, projectID})
     React.useEffect(() => 
     {
         //setInfo( getInfo(projectID) );
-        fetch(`http://localhost:3005/info/${projectID}`)
+        fetch(`https://djevelyn.helioho.st/portfolio/info/${projectID}`)
         .then(response => response.json())
         .then(data => setInfo(data));  
 

@@ -66,7 +66,7 @@ export default function ProjectDisplay({inputText})
 
     const aiSubmit = async (givenMessage) =>
     {
-        fetch('http://localhost:3005/api/askAI/list', 
+        fetch('https://djevelyn.helioho.st/portfolio/api/askAI/list', 
         {
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify( { message : givenMessage }),
@@ -84,7 +84,7 @@ export default function ProjectDisplay({inputText})
 
         console.log(`Tag strings are ${getTagStrings(tags)}`);
 
-        fetch (`http://localhost:3005/bar/all${getTagStrings(tags)}`)
+        fetch (`https://djevelyn.helioho.st/portfolio/bar/all${getTagStrings(tags)}`)
         .then(response => response.json())
         .then(data => { console.log(`Data is ${data}`);  setProjectList( data ) });
 
@@ -105,7 +105,10 @@ export default function ProjectDisplay({inputText})
         {/* <div> Open status is {open? "open" : "closed"} </div>
         <button onClick={buttonAction}> Toggle </button> */}
 
-        <span style={{textAlign: 'center'}}> Projects & Qualifications </span>
+        <span className='projects-header' 
+        style={{width: '100%', fontWeight: 'bold', display: 'flex', 
+        justifyContent: 'center' }}> 
+        Projects & Qualifications </span>
 
             <ProjectDisplayCSS style={{gridTemplateRows : `${ratio[0]}fr ${ratio[1]}fr`}}> 
                 <div className='project-list' style={{height: open? '0%' : '100%'}}> 
@@ -165,5 +168,4 @@ const ProjectDisplayCSS = styled.div `
         //width: 95%;
         //height: 95%; 
     }
-
 `

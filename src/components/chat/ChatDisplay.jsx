@@ -31,7 +31,7 @@ export default function ChatDisplay({inputText, setInputLocked})
 
     const aiSubmit = async (givenMessage) =>
     {
-        fetch('http://localhost:3005/api/askAI/ask', 
+        fetch('https://djevelyn.helioho.st/portfolio/api/askAI/ask', 
         {
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify( { message : givenMessage }),
