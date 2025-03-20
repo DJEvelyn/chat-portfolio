@@ -50,7 +50,7 @@ export default function ProjectDisplay({inputText})
 
     const [selectedProjectID, setSelectedProjectID] = React.useState(null); 
     const [projectList, setProjectList] = React.useState([])
-    const [tags, setTags] = React.useState(['web'])
+    const [tags, setTags] = React.useState([''])
 
 
 
