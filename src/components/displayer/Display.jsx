@@ -42,6 +42,8 @@ const DisplayCSS = styled.div`
 
         margin-top: 5px;
         margin-bottom: 5px;
+
+        border-bottom: 1px solid lightgray;
     }
 
     /* Media query for mobile devices */
