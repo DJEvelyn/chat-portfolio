@@ -16,8 +16,8 @@ export default function ProjectBar({id, name, start_date, end_date, bar_image,
 
 const ProjectBarCSS = styled.div `
 
-    width: 100%; 
-    height: 100%;
+    min-width: 100%; 
+    min-height: 100%;
 
     display: grid;
 

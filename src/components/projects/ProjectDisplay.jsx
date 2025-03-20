@@ -110,7 +110,7 @@ export default function ProjectDisplay({inputText})
             <ProjectDisplayCSS style={{gridTemplateRows : `${ratio[0]}fr ${ratio[1]}fr`}}> 
                 <div className='project-list'> 
                     {open? <div> </div> : projectList.map(i => {
-                        return <ProjectBar key={i.id} {...i} clickAction={() => {setID(i.id)}}/>
+                        return <div key={i.id}> <ProjectBar {...i} clickAction={() => {setID(i.id)}}/> </div>
                     })}
                 </div>
 
@@ -127,25 +127,30 @@ export default function ProjectDisplay({inputText})
 
 const ProjectDisplayCSS = styled.div `
 
+    box-sizing: border-box;
     
     width: 100%;
     height: 100%; 
 
-    display: grid;
+    //display: grid;
     //border: 1px solid purple; 
 
     // * {        
     //     border: 1px solid purple; 
     // }
 
+    //overflow-x: hidden;
+
     .project-list {
         height: 100%; 
-        display: grid;
+        display: flex;
+
+        flex-direction: column;
 
         overflow-y: auto; 
 
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        //grid-template-columns: 1fr;
+        //grid-template-rows: auto;
     } 
 
     .project-list div {
