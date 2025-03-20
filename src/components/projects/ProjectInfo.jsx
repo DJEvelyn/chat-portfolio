@@ -27,8 +27,8 @@ export default function ProjectInfo({backAction, projectID})
             <div style={{gridArea : "time"}}> <span> START: {info.start_date} </span>  <span> END: {info.end_date} </span>  </div>
             <div style={{gridArea : "view"}}> <img src={info.main_image} alt='project image'/> </div>
             <div style={{gridArea : "text"}}> {info.description} </div>
-            <div style={{gridArea : "code"}}> <a href={info.code_link}>Code </a> </div>
-            <div style={{gridArea : "demo"}}> <a href={info.demo_link}>Demo </a>  </div>
+            <div style={{gridArea : "code"}}> <a style={{backgroundColor: info.demo_link? '#28a745' : 'gray'}} href={info.code_link}>Code </a> </div>
+            <div style={{gridArea : "demo"}}> <a style={{backgroundColor: info.demo_link? '#28a745' : 'gray'}} href={info.demo_link}>Demo </a>  </div>
 
             {/* { getListOfSize(8 * 8).map(i => <div> {i} </div>)} */}
 
